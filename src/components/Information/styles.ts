@@ -24,3 +24,7 @@ export const InformationFooter = styled.div`
   text-align: center;
   color: #3e3e59;
 `;
+
+export const InfoMationCard = styled.div`
+  padding-left: 40px;
+`;

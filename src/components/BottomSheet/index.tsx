@@ -5,11 +5,13 @@ import Header from './Header';
 type Props = {
   isBottomSheet: boolean;
   changeIsBottomSheet: Function;
+  children: React.ReactNode;
 };
 
 export default function BottomSheet({
   isBottomSheet,
   changeIsBottomSheet,
+  children,
 }: Props) {
   const sheet = useRef<HTMLDivElement>(null);
   let startY = 0;
@@ -22,17 +24,24 @@ export default function BottomSheet({
   const handleTouchEnd = (e: TouchEvent) => {
     if (startY < e.changedTouches[0].clientY) {
       changeIsBottomSheet(false);
+      history.pushState(
+        '',
+        window.document.title,
+        window.location.pathname + window.location.search,
+      );
     }
     document.body.style.overflowY = 'auto';
   };
-  useEffect(() => {
-    sheet.current!.addEventListener('touchstart', handleTouchStart);
-    sheet.current!.addEventListener('touchmove', handleTouchMove);
-    sheet.current!.addEventListener('touchend', handleTouchEnd);
-  }, []);
   return (
-    <S.Wrapper ref={sheet} isBottomSheet={isBottomSheet}>
+    <S.Wrapper
+      ref={sheet}
+      isBottomSheet={isBottomSheet}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       <Header />
+      {children}
     </S.Wrapper>
   );
 }

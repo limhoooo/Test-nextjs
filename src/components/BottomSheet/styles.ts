@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 type Wrapper = {
   isBottomSheet: boolean;
+  onTouchStart: Function;
+  onTouchMove: Function;
+  onTouchEnd: Function;
 };
 
 export const Wrapper = styled.div<Wrapper>`
@@ -12,10 +15,10 @@ export const Wrapper = styled.div<Wrapper>`
     ${({ isBottomSheet }) => (isBottomSheet ? '0px' : '200px')}
   );
 
-  transition: transform 650ms ease-out;
+  transition: transform 350ms ease-out;
   bottom: 0;
   left: 0;
-  background-color: #aaa;
+  background-color: #d0d0d0;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 `;
@@ -33,6 +36,6 @@ export const HandleBar = styled.div`
   width: 32px;
   height: 4px;
   border-radius: 2px;
-  background-color: #d0d0d0;
+  background-color: #fff;
   margin: auto;
 `;
