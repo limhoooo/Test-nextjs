@@ -1,4 +1,4 @@
-import Fetch, { FetchResponse } from '../utils/HttpClient';
+import Fetch, { FetchResponse } from "../utils/HttpClient";
 
 export type TypeBanners = {
   id: string;
@@ -23,12 +23,12 @@ type ProductApi = {
 };
 const commerceApi = new Fetch();
 commerceApi.setHeaders({
-  'Content-Type': 'application/json; charset=utf-8',
+  "Content-Type": "application/json; charset=utf-8",
 });
-commerceApi.setBaseUrl('http://localhost:3000/');
+commerceApi.setBaseUrl("https://test-nextjs-klvowt8u3-limhoooo.vercel.app/");
 
 export const productApi: ProductApi = {
-  getBanners: () => commerceApi.get({ url: '/api/banners' }),
-  getAllProducts: () => commerceApi.get({ url: '/api/products' }),
-  getNewProducts: () => commerceApi.get({ url: '/api/products/new-products' }),
+  getBanners: () => commerceApi.get({ url: "/api/banners" }),
+  getAllProducts: () => commerceApi.get({ url: "/api/products" }),
+  getNewProducts: () => commerceApi.get({ url: "/api/products/new-products" }),
 };
