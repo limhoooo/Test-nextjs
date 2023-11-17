@@ -25,7 +25,7 @@ const commerceApi = new Fetch();
 commerceApi.setHeaders({
   "Content-Type": "application/json; charset=utf-8",
 });
-commerceApi.setBaseUrl("https://test-nextjs-klvowt8u3-limhoooo.vercel.app/");
+commerceApi.setBaseUrl("https://test-nextjs-seven-psi.vercel.app/");
 
 export const productApi: ProductApi = {
   getBanners: () => commerceApi.get({ url: "/api/banners" }),
