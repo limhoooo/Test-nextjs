@@ -11,7 +11,7 @@ type Props = {
 const tabMenu = ['All', 'Best Sellers', 'New Arrivals', 'Sale'];
 
 export default function Products({ allProducts }: Props) {
-  const [activeTab, setActiveTab] = useState<string>();
+  const [activeTab, setActiveTab] = useState<string>(tabMenu[0]);
   const handleHashChange = () => {
     if (typeof window === 'undefined') return;
     const hash = decodeURI(window.location.hash.substr(1));
@@ -37,7 +37,7 @@ export default function Products({ allProducts }: Props) {
   return (
     <S.Wrapper>
       <S.TitleBox>
-        <TabMenu tabMenu={tabMenu} />
+        <TabMenu tabMenu={tabMenu} activeTab={activeTab} />
       </S.TitleBox>
       <S.TabBox>
         {productsList &&

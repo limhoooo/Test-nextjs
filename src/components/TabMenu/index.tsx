@@ -4,20 +4,20 @@ import Typography from '../styles/Typography';
 
 type Props = {
   tabMenu: string[];
+  activeTab: string;
 };
 
-export default function TabMenu({ tabMenu }: Props) {
+export default function TabMenu({ tabMenu, activeTab }: Props) {
   const [active, setActive] = useState<string>();
   const clickTab = (item: string) => {
-    window.location.hash = `${item}`;
+    window.location.hash = item;
     setActive(item);
   };
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const hash = decodeURI(window.location.hash.substr(1));
-    setActive(hash || tabMenu[0]);
-  }, []);
+    const check = tabMenu.find(item => item === activeTab);
+    setActive(check ? activeTab : tabMenu[0]);
+  }, [activeTab]);
 
   return (
     <S.Wrapper>

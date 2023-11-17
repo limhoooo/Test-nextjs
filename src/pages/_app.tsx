@@ -7,7 +7,6 @@ import { theme } from '../styles/theme';
 import { NextPage } from 'next';
 import { AuthProvider } from '../stores/AuthContext';
 
-
 type EnhancedAppProps = AppProps & {
   Component: NextPage;
   pageProps: Record<string, unknown>;

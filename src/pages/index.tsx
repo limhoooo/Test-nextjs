@@ -5,6 +5,7 @@ import { TypeBanners, TypeProducts, productApi } from '../service/productApi';
 import Products from '../components/Products';
 import EventSection from '../components/EventSection';
 import Information from '../components/Information';
+import BottomSheet from '../components/BottomSheet';
 
 type Props = {
   banners: TypeBanners[];
