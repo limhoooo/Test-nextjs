@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import * as S from './styles';
-import Header from './Header';
+import React, { useEffect, useRef } from "react";
+import * as S from "./styles";
+import Header from "./Header";
 
 type Props = {
   isBottomSheet: boolean;
@@ -17,27 +17,24 @@ export default function BottomSheet({
   let startY = 0;
   const handleTouchStart = (e: TouchEvent) => {
     startY = e.touches[0].clientY;
-  };
-  const handleTouchMove = (e: TouchEvent) => {
-    document.body.style.overflowY = 'hidden';
+    document.body.style.overflow = "hidden";
   };
   const handleTouchEnd = (e: TouchEvent) => {
     if (startY < e.changedTouches[0].clientY) {
       changeIsBottomSheet(false);
       history.pushState(
-        '',
+        "",
         window.document.title,
-        window.location.pathname + window.location.search,
+        window.location.pathname + window.location.search
       );
     }
-    document.body.style.overflowY = 'auto';
+    document.body.style.overflow = "auto";
   };
   return (
     <S.Wrapper
       ref={sheet}
       isBottomSheet={isBottomSheet}
       onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
       <Header />
