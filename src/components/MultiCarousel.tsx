@@ -25,8 +25,8 @@ export default function MultiCarousel({
 }: Props) {
   const [test, setTest] = useState("");
   const documentScroll = (value: string) => {
-    document.body.style.overflowY = value;
-    setTest(document.body.style.overflowY);
+    document.body.style.overflow = value;
+    setTest(document.body.style.overflow);
   };
   return (
     <div
