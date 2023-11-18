@@ -1,5 +1,5 @@
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 const responsive = {
   mobile: {
     breakpoint: { max: 1400, min: 0 },
@@ -7,7 +7,7 @@ const responsive = {
     paritialVisibilityGutter: 60,
   },
 };
-import React from 'react';
+import React, { useState } from "react";
 
 type Props = {
   children: React.ReactNode;
@@ -23,19 +23,23 @@ export default function MultiCarousel({
   arrows,
   partialVisbile,
 }: Props) {
+  const [test, setTest] = useState("");
   const documentScroll = (value: string) => {
     document.body.style.overflowY = value;
+    setTest(document.body.style.overflowY);
   };
   return (
     <div
-      onTouchMove={() => documentScroll('hidden')}
-      onTouchEnd={() => documentScroll('auto')}
+      onTouchStart={() => documentScroll("hidden")}
+      onTouchEnd={() => documentScroll("auto")}
     >
+      {test}
       <Carousel
         infinite={infinite}
         autoPlay={autoPlay}
         partialVisbile={partialVisbile}
         arrows={arrows}
+        draggable={false}
         ssr={true}
         responsive={responsive}
         itemClass="m-2"
