@@ -23,17 +23,14 @@ export default function MultiCarousel({
   arrows,
   partialVisbile,
 }: Props) {
-  const [test, setTest] = useState("");
   const documentScroll = (value: string) => {
     document.body.style.overflow = value;
-    setTest(document.body.style.overflow);
   };
   return (
     <div
       onTouchStart={() => documentScroll("hidden")}
       onTouchEnd={() => documentScroll("auto")}
     >
-      {test}
       <Carousel
         infinite={infinite}
         autoPlay={autoPlay}

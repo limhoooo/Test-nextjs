@@ -24,9 +24,6 @@ export const boxModel = () => {
 
 const GlobalStyles = createGlobalStyle`
     ${reset}
-    html,body,#__next{
-      -webkit-overflow-scrolling: touch;
-    }
     a{
         text-decoration: none;
         color: inherit;
