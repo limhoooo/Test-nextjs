@@ -17,7 +17,7 @@ export default function BottomSheet({
   let startY = 0;
   const handleTouchStart = (e: TouchEvent) => {
     startY = e.touches[0].clientY;
-    document.body.style.overflow = "hidden";
+    documentScroll("hidden");
   };
   const handleTouchEnd = (e: TouchEvent) => {
     if (startY < e.changedTouches[0].clientY) {
@@ -28,7 +28,10 @@ export default function BottomSheet({
         window.location.pathname + window.location.search
       );
     }
-    document.body.style.overflow = "auto";
+    documentScroll("auto");
+  };
+  const documentScroll = (value: string) => {
+    document.body.style.overflow = value;
   };
   return (
     <S.Wrapper
