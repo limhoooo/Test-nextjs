@@ -25,7 +25,6 @@ export const boxModel = () => {
 const GlobalStyles = createGlobalStyle`
     ${reset}
     html,body,#__next{
-      overflow: scroll;
       -webkit-overflow-scrolling: touch;
     }
     a{
