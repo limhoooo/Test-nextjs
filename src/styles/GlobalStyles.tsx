@@ -1,5 +1,5 @@
-import styled, { createGlobalStyle, css } from 'styled-components';
-import reset from 'styled-reset';
+import styled, { createGlobalStyle, css } from "styled-components";
+import reset from "styled-reset";
 
 export const boxModel = () => {
   return Array(10)
@@ -19,15 +19,11 @@ export const boxModel = () => {
           margin-right: ${index * 8}px !important;
         }
       `;
-    }, '');
+    }, "");
 };
 
 const GlobalStyles = createGlobalStyle`
     ${reset}
-    html,body,#__next{
-        width: 100%;
-        height: 100%;
-    }
     a{
         text-decoration: none;
         color: inherit;
